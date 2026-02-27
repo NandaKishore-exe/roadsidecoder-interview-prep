@@ -95,12 +95,12 @@ const cart = [
 
 // Question 7:
 // You have this users list:
-const users = [
-  { name: "Nanda", age: 24 },
-  { name: "Ram", age: 17 },
-  { name: "John", age: 30 },
-  { name: "Priya", age: 15 },
-];
+// const users = [
+//   { name: "Nanda", age: 24 },
+//   { name: "Ram", age: 17 },
+//   { name: "John", age: 30 },
+//   { name: "Priya", age: 15 },
+// ];
 
 // 👉 Return names of only users who are 18 or older
 // 👉 Expected output: ["Nanda", "John"]
@@ -127,16 +127,16 @@ const fruits = ["apple", "banana", "apple", "orange", "banana", "apple"];
 
 // Write your solution below 👇
 
-const output = fruits.reduce((acc, curr) => {
-  if (acc[curr]) {
-    acc[curr] = acc[curr] + 1;
-    return acc;
-  }
+// const output = fruits.reduce((acc, curr) => {
+//   if (acc[curr]) {
+//     acc[curr] = acc[curr] + 1;
+//     return acc;
+//   }
 
-  if (!acc[curr]) {
-    acc[curr] = 1;
-    return acc;
-  }
-}, {});
+//   if (!acc[curr]) {
+//     acc[curr] = 1;
+//     return acc;
+//   }
+// }, {});
 
-console.log(output);
+// console.log(output);
