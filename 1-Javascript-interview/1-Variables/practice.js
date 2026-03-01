@@ -2,18 +2,18 @@
 
 // Question 1 : Variable Shadowing
 
-function test() {
-  let a = "Hello";
+// function test() {
+//   let a = "Hello";
 
-  if (true) {
-    let a = "Hello"; // New value assigned
-    console.log(a);
-  }
+//   if (true) {
+//     let a = "Hello"; // New value assigned
+//     console.log(a);
+//   }
 
-  console.log(a);
-}
+//   console.log(a);
+// }
 
-test();
+// test();
 
 // Question 2 :  Illegal Shadowing
 

@@ -40,7 +40,9 @@
 
 // !--- Variable Shadowing ---!
 
-//If we create a variable with the same name inside a block, it hides the outside variable while we are inside that block.
+//Variable shadowing happens when a variable declared in an inner scope (block/function) has the same name as a variable in an outer scope.
+// Inside that inner scope, the inner variable “hides” or “overrides access to” the outer variable.
+// The outer variable still exists — but it cannot be accessed from that inner scope because the closer scope takes priority.
 
 // function test() {
 //   let a = "Hello";
@@ -86,7 +88,7 @@
 
 // !--- Hoisting ---!
 
-//Hoisting is JavaScript’s behavior of moving variable declarations to the top of their scope.
+// Hoisting is JavaScript’s behavior of moving variable declarations to the top of their scope.
 
 // console.log(count);
 
@@ -109,4 +111,12 @@ let count2 = 2;
 const count = 1;
 
 //let and const variables are hoisted but stay in the Temporal Dead Zone until their declaration line, so accessing them before declaration throws a ReferenceError.
-// TDZ - The time between the (let,const)variable declaration and initialization.
+// TDZ - period between when a let/const variable is hoisted (start of its scope) and when it actually gets initialized (the line where you declare it).
+
+{
+  // ← start of scope (block starts here)
+  console.log(x); // TDZ — x hoisted but not initialized
+  console.log(x); // TDZ — still can't access
+  let x = 10; // ← actual declaration line (TDZ ends HERE)
+  console.log(x); // ✅ 10
+}
