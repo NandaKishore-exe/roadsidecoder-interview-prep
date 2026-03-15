@@ -26,8 +26,37 @@ const studentData = {
 
 // iterating through object
 
-for (key in user) {
-  console.log(user[key]);
+// for (key in user) {
+//   console.log(user[key]);
+// }
+
+// Question 1 - what is the output
+
+const obj = {
+  a: "one",
+  b: "two",
+  a: "three",
+};
+
+// console.log(obj); // {a: "three", b: "two"}
+
+// Question 2 - create a function multiplyByTwo(obj) that multiplies all numeric property values of nums by 2.
+
+let nums = {
+  a: 100,
+  b: 200,
+  title: "My nums",
+};
+
+function multiplyByTwo(obj) {
+  for (key in obj) {
+    if (typeof obj[key] === "number") {
+      obj[key] = obj[key] * 2;
+    }
+  }
+  console.log(obj);
 }
 
-// Question 1
+console.log(multiplyByTwo(nums));
+
+// console.log(nums);
