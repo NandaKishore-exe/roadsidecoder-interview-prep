@@ -137,4 +137,51 @@ console.log(shape.perimeter()); // NaN - because for arrow functions this points
 
 const { age } = user2; // extracting a specific value from the object
 
+// const {name} = user2 // we cannot destructure name because we have already name variable declared in global scope
+
+const { name: myName } = user2; // so to avoid error we can access like this by renaming the property key
+
 console.log(age);
+console.log(myName);
+
+const obj2 = {
+  details: {
+    username: "chris evans",
+    age: 27,
+  },
+};
+
+const {
+  details: { username },
+} = obj2; // nested obj destructuring
+
+console.log(username);
+
+// Question 10 - what is issue here - rest parameter should be always at last in the parametes "Uncaught SyntaxError: Rest parameter must be last formal parameter (at index.js:163:33)"
+
+// function sample (fruits, ...args, favFruits){
+//   return [...fruits, ...args, favFruits]
+// }
+
+// fixed code
+
+function sample(fruits, favFruits, ...args) {
+  return [...fruits, ...args, favFruits]; // speard operator we can use wherever we want no issues
+}
+
+console.log(sample(["apple", "banana"], "grapes", "orange"));
+
+// Question 11 - what is the output - object referencing
+
+let greetOne = { greeting: "hey" };
+
+let greetTwo = greetOne; // This does NOT copy the object, it copies the reference (memory address).
+
+greetOne.greeting = "Hello";
+
+console.log(greetTwo);
+
+// Question 12 - what is the output
+// This condition will always return 'false' since JavaScript compares objects by reference, not value.ts(2839)
+console.log({ a: 1 } == { a: 1 }); // false
+console.log({ a: 1 } === { a: 1 }); // false
