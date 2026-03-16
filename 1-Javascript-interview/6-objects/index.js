@@ -57,6 +57,30 @@ function multiplyByTwo(obj) {
   console.log(obj);
 }
 
-console.log(multiplyByTwo(nums));
+// console.log(multiplyByTwo(nums));
 
-// console.log(nums);
+// Question 3 - What is the output of the following code
+
+const a = {};
+
+const b = { key: "b" };
+
+const c = { key: "c" };
+
+/* In JavaScript objects, property keys can only be:
+
+- string
+
+- symbol
+
+- it should Not be objects.
+
+So when you use an object as a key, JavaScript implicitly converts it to a string. */
+
+a[b] = 453;
+
+a[c] = 123;
+
+console.log(a); // output - { "[object Object]": 123 }
+
+// Question 4 -
