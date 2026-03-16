@@ -83,4 +83,58 @@ a[c] = 123;
 
 console.log(a); // output - { "[object Object]": 123 }
 
-// Question 4 -
+// Question 4 - what is JSON.stringify and JSON.parse
+
+const user2 = {
+  name: "nanda",
+  age: 27,
+};
+
+const strObj = JSON.stringify(user2);
+
+console.log(strObj);
+
+console.log(JSON.parse(strObj));
+
+// Question 5 - what is the output
+
+console.log([..."nanda"]); // ['n', 'a', 'n', 'd', 'a']
+
+// when we try to use speard operator inside the string with array it spread each character of given string in the array
+
+// Question 6 - what is the output - testing knowledge on spread operator
+
+const admin = { admin: true, ...user2 };
+
+console.log(admin);
+
+// Question 7 - what is the output
+
+const settings = {
+  username: "peter",
+  level: 19,
+  health: 90,
+};
+
+const data = JSON.stringify(settings, ["level", "health"]); // this will only stringify the level and health from settings object
+
+console.log(data); // {"level":19,"health":90}
+
+// Question 8 - what is the output
+
+const shape = {
+  radius: 10,
+  diameter() {
+    return this.radius * 2;
+  },
+  perimeter: () => 2 * Math.PI * this.radius,
+};
+
+console.log(shape.diameter()); // 20
+console.log(shape.perimeter()); // NaN - because for arrow functions this points to global window not this object
+
+// Question 9 - what is object destructuring
+
+const { age } = user2; // extracting a specific value from the object
+
+console.log(age);
