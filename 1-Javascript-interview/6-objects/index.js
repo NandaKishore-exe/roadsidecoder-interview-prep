@@ -182,7 +182,8 @@ greetOne.greeting = "Hello";
 console.log(greetTwo);
 
 // Question 12 - what is the output
-// This condition will always return 'false' since JavaScript compares objects by reference, not value.ts(2839)
+// This condition will always return 'false' since JavaScript compares objects by reference, not value.
+
 console.log({ a: 1 } == { a: 1 }); // false
 console.log({ a: 1 } === { a: 1 }); // false
 
@@ -202,4 +203,93 @@ person = null;
 
 console.log(members); // [{ name: "nanda" }]
 
-//
+// Question 14 - What's the output
+
+const value = { number: 10 };
+
+const mul = (x = { ...value }) => {
+  console.log((x.number *= 2));
+};
+
+mul(); // 20
+mul(); // 20
+mul(value); // 20
+mul(value); // 40
+
+// Question 15 - what is the output
+
+function changeAgeAndReference(person) {
+  person.age = 25;
+
+  person = {
+    name: "John",
+    age: 50,
+  };
+
+  return person;
+}
+
+const personObj1 = {
+  name: "Alex",
+  age: 30,
+};
+
+const personObj2 = changeAgeAndReference(personObj1);
+
+console.log(personObj1);
+// { name: "Alex", age: 25 }
+
+console.log(personObj2);
+// { name: "John", age: 50 }
+
+// Question 16 - what is shallow copy and deep copy in objects
+
+// 🔹 1. Shallow Copy
+
+// 👉 A shallow copy copies only the top level
+// 👉 Nested objects are still shared (same reference)
+
+const original = {
+  name: "Nanda",
+  address: {
+    city: "Delhi",
+  },
+};
+
+const shallowCopy = { ...original };
+
+shallowCopy.name = "Alex";
+shallowCopy.address.city = "Mumbai";
+
+console.log(original);
+console.log(shallowCopy);
+
+/* 
+
+----output---
+
+original
+{
+  name: "Nanda",
+  address: { city: "Mumbai" } ❗ changed
+}
+
+shallowCopy
+{
+  name: "Alex",
+  address: { city: "Mumbai" }
+}
+*/
+
+// 🔹 2. Deep Copy
+
+// 👉 A deep copy creates a completely independent clone
+// 👉 No shared references at all
+
+// const deepCopy = JSON.parse(JSON.stringify(original));
+const deepCopy = structuredClone(original);
+
+deepCopy.address.city = "Mumbai";
+
+console.log(original);
+console.log(deepCopy);
