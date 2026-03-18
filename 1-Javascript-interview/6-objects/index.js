@@ -185,3 +185,21 @@ console.log(greetTwo);
 // This condition will always return 'false' since JavaScript compares objects by reference, not value.ts(2839)
 console.log({ a: 1 } == { a: 1 }); // false
 console.log({ a: 1 } === { a: 1 }); // false
+
+// Question 13 - what is the output
+
+/* JavaScript objects are assigned and stored by reference, not by value.
+
+members[0] still points to the original object
+
+Setting person = null just removes that one reference, not the object itself */
+
+let person = { name: "nanda" };
+
+const members = [person];
+
+person = null;
+
+console.log(members); // [{ name: "nanda" }]
+
+//
