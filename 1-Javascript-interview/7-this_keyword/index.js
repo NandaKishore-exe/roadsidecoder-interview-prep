@@ -35,4 +35,27 @@ let user = {
   },
 };
 
-console.log(user.getDetails());
+user.getDetails(); // output - nanda, so here when have a object before function call this will point to the object (user) where the function is called. This is called 'Implicit Binding' - this refers to the object before the dot at call time.
+
+let user2 = {
+  name: "kishore",
+  childObj: {
+    newName: "Peter",
+    getData() {
+      console.log(this.newName, "and", this.name);
+    },
+  },
+};
+
+user2.childObj.getData(); // output - Peter and undefined, why because here this points to childObj object and checks for name variable inside that object since there no such variable it prints undefined and newName has "peter" inside that object so this will print.
+
+let user3 = {
+  name: "nanda kishore",
+  age: 28,
+  getDetails2() {
+    const nestedArrow = () => console.log(this.name); // Arrow functions capture this from where they are defined, not how they are called
+    nestedArrow();
+  },
+};
+
+user3.getDetails2(); // output - nanda kishore, Arrow function does NOT have its own this So it inherits this from its parent function (getDetails)
