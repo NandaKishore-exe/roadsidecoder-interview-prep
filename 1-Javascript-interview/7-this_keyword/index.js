@@ -59,3 +59,20 @@ let user3 = {
 };
 
 user3.getDetails2(); // output - nanda kishore, Arrow function does NOT have its own this So it inherits this from its parent function (getDetails)
+
+// How this behaves in classes
+
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(this.name + " makes sound");
+  }
+}
+
+const dog = new Animal("Tommy");
+dog.speak();
+
+console.log(dog);
