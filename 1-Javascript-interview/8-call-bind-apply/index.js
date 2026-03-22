@@ -195,3 +195,56 @@ var person2 = { age: 24 };
 
 person.getAgeArrow.call(person2); // Arrow function takes this from global scope, where age is not attached to window, so it prints undefined. Also, call cannot change this for arrow functions.
 person.getAge.call(person2); // 24
+
+// Question 15 - Polyfill for call, bind, apply
+
+let car = {
+  name: "verna",
+  company: "Hyundai",
+};
+
+function purchaseCar(currency, price) {
+  console.log(
+    `I have bought ${this.name} - ${this.company} car for price ${currency}${price}`,
+  );
+}
+
+Function.prototype.myCall = function (obj = {}, ...args) {
+  if (typeof this !== "function") {
+    throw new Error(this + "It is not a callable function");
+  }
+
+  obj.fn = this;
+  obj.fn(...args);
+};
+
+Function.prototype.myApply = function (obj = {}, args = []) {
+  if (typeof this !== "function") {
+    throw new Error(this + "It is not a callable function");
+  }
+
+  if (!Array.isArray(args)) {
+    throw new TypeError("CreateListFromArryLike called on non objects");
+  }
+
+  obj.fn = this;
+  obj.fn(...args);
+};
+
+Function.prototype.myBind = function (obj = {}, ...args) {
+  if (typeof this !== "function") {
+    throw new Error(this + "cannot be bound as it's not callable");
+  }
+
+  obj.fn = this;
+  return function (...newArgs) {
+    return obj.fn(...args, ...newArgs);
+  };
+};
+
+purchaseCar.myCall(car, "$", 1500000);
+purchaseCar.myApply(car, ["$", 1500000]);
+
+const bindFn = purchaseCar.myBind(car, "$");
+
+console.log(bindFn(1500000));
