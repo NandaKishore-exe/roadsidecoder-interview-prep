@@ -1,17 +1,52 @@
-# RoadsideCoder Interview Prep
+# Learning JavaScript
 
-## Week 1:
+Started on Feb 23. Been consistently working on JavaScript fundamentals.
 
-- Hoisting (var, let, const)
-- Variable Shadowing
-- Illegal Shadowing
-- Scopes
+Covered most core topics over ~3 weeks. Took a short break for health, now focusing on revision and getting stronger with concepts.
 
-## Week 2:
+---
 
-- (Upcoming topics you plan to revise or learn)
+## What I’ve Covered
+
+* Variables (`var`, `let`, `const`)
+* Hoisting & TDZ
+* Scope (global, function, block)
+* Shadowing (including illegal cases)
+* Functions
+* Closures
+* Currying
+* map / filter / reduce
+* Objects
+* `this` keyword
+* call / bind / apply
+
+---
+
+## Current Focus
+
+* Revising everything properly
+* Writing code from memory
+* Practicing tricky problems
+* Understanding edge cases
+
+---
+
+## Structure
+
+```
+1-javascript-interview/
+```
+
+---
 
 ## Notes
 
-- Each week, I’ll revisit previous concepts and test myself.
-- Mistakes and improvements are tracked in `revisions.js`.
+Tracking mistakes and learnings in:
+
+```
+revisions.js
+```
+
+---
+
+Trying to stay consistent and build a strong foundation in JavaScript.
