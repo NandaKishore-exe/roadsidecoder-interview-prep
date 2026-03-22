@@ -131,4 +131,4 @@ function f() {
 
 f = f.bind({ name: "John" }).bind({ name: "Adam" });
 
-f(); // Output - Adam
+f(); // Output - Adam - why because bind chaining does not override previous bindings; the first bind takes precedence.
