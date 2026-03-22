@@ -132,3 +132,66 @@ function f() {
 f = f.bind({ name: "John" }).bind({ name: "Adam" });
 
 f(); // Output - Adam - why because bind chaining does not override previous bindings; the first bind takes precedence.
+
+// Question 12 - Fix the line 22 to make code work properly
+
+function checkPassword(success, failed) {
+  let password = prompt("Password?", "");
+  if (password == "peter123") {
+    success();
+  } else {
+    failed();
+  }
+}
+
+let member = {
+  name: "nanda",
+  loginSuccesful() {
+    console.log(`${this.name} logged in`);
+  },
+  loginFailed() {
+    console.log(`${this.name} failed to log in`);
+  },
+};
+
+// checkPassword(
+//   member.loginSuccesful.bind(member),
+//   member.loginFailed.bind(member),
+// );
+
+//Question 13 - Partial application for login function
+
+function validatePassword(ok, fail) {
+  let password = prompt("Password?", "");
+  if (password == "123") ok();
+  else fail();
+}
+
+let user2 = {
+  name: "nanda kishore",
+  login(result) {
+    console.log(this.name + (result ? "login successful" : "login failed"));
+  },
+};
+
+// validatePassword()
+
+// validatePassword(user2.login.bind(user2, true), user2.login.bind(user2, false));
+
+// Question 14 - Explicit Binding with Arrow Function
+
+const age = 10;
+
+var person = {
+  name: "John",
+  age: 20,
+  getAgeArrow: () => console.log(this.age),
+  getAge: function () {
+    console.log(this.age);
+  },
+};
+
+var person2 = { age: 24 };
+
+person.getAgeArrow.call(person2); // Arrow function takes this from global scope, where age is not attached to window, so it prints undefined. Also, call cannot change this for arrow functions.
+person.getAge.call(person2); // 24
