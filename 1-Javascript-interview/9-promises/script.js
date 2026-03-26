@@ -58,27 +58,68 @@
 
 // Question 4 - what is the output
 
-function job() {
+// function job() {
+//   return new Promise(function (resolve, reject) {
+//     reject();
+//   });
+// }
+
+// let promise = job();
+
+// promise
+//   .then(function () {
+//     console.log("Success 1");
+//   })
+//   .then(function () {
+//     console.log("Success 2");
+//   })
+//   .then(function () {
+//     console.log("Success 3");
+//   })
+//   .catch(function () {
+//     console.log("Error 1");
+//   })
+//   .then(function () {
+//     console.log("Success 4");
+//   });
+
+// Question 5 - what is the output?
+
+/*
+  success
+  error
+  Error Caught
+
+*/
+
+function job(state) {
   return new Promise(function (resolve, reject) {
-    reject();
+    if (state) {
+      resolve("success");
+    } else {
+      reject("error");
+    }
   });
 }
 
-let promise = job();
+let promise = job(true);
 
 promise
-  .then(function () {
-    console.log("Success 1");
+  .then(function (data) {
+    console.log(data);
+
+    return job(false);
   })
-  .then(function () {
-    console.log("Success 2");
+  .catch(function (error) {
+    console.log(error);
+
+    return "Error Caught";
   })
-  .then(function () {
-    console.log("Success 3");
+  .then(function (data) {
+    console.log(data);
+
+    return job(true);
   })
-  .catch(function () {
-    console.log("Error 1");
-  })
-  .then(function () {
-    console.log("Success 4");
+  .catch(function (error) {
+    console.log(error);
   });
