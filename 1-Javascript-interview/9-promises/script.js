@@ -126,56 +126,143 @@
 
 // Question 6 - What's the output?
 
-/*
-success
+// function job(state) {
+//   return new Promise(function (resolve, reject) {
+//     if (state) {
+//       resolve("success");
+//     } else {
+//       reject("error");
+//     }
+//   });
+// }
 
-*/
+// let promise = job(true); // resolve("success")
 
-function job(state) {
-  return new Promise(function (resolve, reject) {
-    if (state) {
-      resolve("success");
-    } else {
-      reject("error");
-    }
-  });
-}
+// promise
+//   .then(function (data) {
+//     console.log(data); // success
+//     return job(true);
+//   })
+//   .then(function (data) {
+//     if (data !== "victory") {
+//       throw "Defeat";
+//     }
+//     return job(true);
+//   })
+//   .then(function (data) {
+//     console.log(data);
+//   })
+//   .catch(function (error) {
+//     console.log(error); // Defeat
+//     return job(false);
+//   })
+//   .then(function (data) {
+//     console.log(data);
+//     return job(true);
+//   })
+//   .catch(function (error) {
+//     console.log(error); // error
+//     return "Error Caught";
+//   })
+//   .then(function (data) {
+//     console.log(data); // Error Caught
+//     return new Error("test");
+//   })
+//   .then(function (data) {
+//     console.log("sucess:", data.message); // Success: test
+//   })
+//   .catch(function (data) {
+//     console.log("error:", data.message);
+//   });
 
-let promise = job(true); // resolve("success")
+// Question 7 - Promise Chaining
 
-promise
-  .then(function (data) {
-    console.log(data); // success
-    return job(true);
-  })
-  .then(function (data) {
-    if (data !== "victory") {
-      throw "Defeat";
-    }
-    return job(true);
-  })
-  .then(function (data) {
-    console.log(data);
-  })
-  .catch(function (error) {
-    console.log(error); // Defeat
-    return job(false);
-  })
-  .then(function (data) {
-    console.log(data);
-    return job(true);
-  })
-  .catch(function (error) {
-    console.log(error); // error
-    return "Error Caught";
-  })
-  .then(function (data) {
-    console.log(data); // Error Caught
-    return new Error("test");
-  })
-  .then(function (data) {
-    console.log("sucess:", data.message); // Success: test
-  })
-  .catch(function (data) {
-    console.log("error:", data.message);
-  });
+// const firstPromise = new Promise((resolve, reject) => {
+//   resolve("first!");
+// });
+
+// const secondPromise = new Promise((resolve, reject) => {
+//   resolve(firstPromise);
+// });
+
+// secondPromise.then((res) => res).then((res) => console.log(res));
+
+// Question 8 - Rewrite this example code using "async/await" instead of ".then/.catch"
+
+// function loadJson(url) {
+//   return fetch(url).then((response) => {
+//     if (response.status == 200) {
+//       return response.json();
+//     } else {
+//       throw new Error(response.status);
+//     }
+//   });
+// }
+
+// loadJson("https://fakeurl.com/no-such-user.json").catch((err) =>
+//   console.log(err),
+// );
+
+// let url = "https://fakeurl.com/no-such-user.json";
+
+// const loadJson = async () => {
+//   const response = await fetch(url);
+//   if (response.status == 200) {
+//     let json = await response.json();
+//     return json;
+//   } else {
+//     throw new Error(response.status);
+//   }
+// };
+
+// console.log(loadJson(url));
+
+// Question 9: solve promise recursively
+
+// function importantAction(username) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve(`This is an important action 3 ${username}`);
+//     }, 0);
+//   });
+// }
+// function shareTheVideo(video) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve(`share this ${video} video`);
+//     }, 1000);
+//   });
+// }
+// function likeTheVideo(video) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve(`Like this ${video} video`);
+//     }, 1000);
+//   });
+// }
+
+// function promRecurse(funcPromises) {
+//   if (funcPromises.length === 0) return;
+
+//   const currPromise = funcPromises.shift();
+
+//   currPromise.then((res) => console.log(res)).catch((err) => console.log(err));
+
+//   promRecurse(funcPromises);
+// }
+
+// promRecurse([
+//   importantAction("Roadside Coder"),
+//   likeTheVideo("Javascript Interview Questions"),
+//   shareTheVideo("Javascript Interview Questions"),
+// ]);
+
+// Question 10 - Promise Polyfill Implementation
+
+// const examplePromise = new PromisePolyFill((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(2);
+//   }, 1000);
+// });
+
+// examplePromise.then((res) => console.log(res)).catch((err) => console.log(err));
