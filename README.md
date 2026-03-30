@@ -1,33 +1,25 @@
 # Learning JavaScript
 
-Started on Feb 23. Been consistently working on JavaScript fundamentals.
-
-Covered most core topics over ~3 weeks. Took a short break for health, now focusing on revision and getting stronger with concepts.
-
----
-
-## What I’ve Covered
-
-* Variables (`var`, `let`, `const`)
-* Hoisting & TDZ
-* Scope (global, function, block)
-* Shadowing (including illegal cases)
-* Functions
-* Closures
-* Currying
-* map / filter / reduce
-* Objects
-* `this` keyword
-* call / bind / apply
+- Variables (`var`, `let`, `const`)
+- Hoisting & TDZ
+- Scope (global, function, block)
+- Shadowing (including illegal cases)
+- Functions
+- Closures
+- Currying
+- map / filter / reduce
+- Objects
+- `this` keyword
+- call / bind / apply
 
 ---
 
 ## Current Focus
 
-* Revising everything properly
-* Writing code from memory
-* Practicing tricky problems
-* Understanding edge cases
+- Revising everything properly
+- Writing code from memory
+- Practicing tricky problems
+- Understanding edge cases
 
 ---
 
