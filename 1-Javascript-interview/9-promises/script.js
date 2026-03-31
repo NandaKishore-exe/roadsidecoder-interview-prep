@@ -259,6 +259,35 @@
 
 // Question 10 - Promise Polyfill Implementation
 
-// Building block of promise poly fill
+function MyPromise(executor) {
+  let state = "pending";
+  let value;
+  let successCallbacks = [],
+    errorCallbacks = [];
 
-// step 1 - create empty promise
+  function resolve(val) {
+    if (state !== "pending") return;
+    state = "fulfilled";
+    value = val;
+    successCallbacks.forEach((cb) => cb(value));
+  }
+  function reject(err) {
+    if (state !== "pending") return;
+    state = "rejected";
+    value = err;
+    errorCallbacks.forEach((cb) => cb(value));
+  }
+
+  this.then = function (cb) {
+    state === "fulfilled" ? cb(value) : successCallbacks.push(cb);
+  };
+  this.catch = function (cb) {
+    state === "rejected" ? cb(value) : errorCallbacks.push(cb);
+  };
+
+  try {
+    executor(resolve, reject);
+  } catch (e) {
+    reject(e);
+  }
+}
