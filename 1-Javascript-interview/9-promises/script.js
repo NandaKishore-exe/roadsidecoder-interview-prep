@@ -259,7 +259,7 @@
 
 // Question 10 - Promise Polyfill Implementation
 
-function MyPromise(executor) {
+function myPromise(executor) {
   let state = "pending";
   let value;
   let successCallbacks = [],
@@ -291,3 +291,19 @@ function MyPromise(executor) {
     reject(e);
   }
 }
+
+const p = new myPromise((resolve, reject) => {
+  console.log("Executor started");
+
+  setTimeout(() => {
+    resolve("Success data");
+  }, 2000);
+});
+
+p.then((data) => {
+  console.log("Then:", data);
+});
+
+p.catch((err) => {
+  console.log("Catch:", err);
+});
