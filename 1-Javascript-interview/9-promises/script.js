@@ -259,10 +259,6 @@
 
 // Question 10 - Promise Polyfill Implementation
 
-// const examplePromise = new PromisePolyFill((resolve, reject) => {
-//   setTimeout(() => {
-//     resolve(2);
-//   }, 1000);
-// });
+// Building block of promise poly fill
 
-// examplePromise.then((res) => console.log(res)).catch((err) => console.log(err));
+// step 1 - create empty promise
