@@ -11,6 +11,7 @@
 - Objects
 - `this` keyword
 - call / bind / apply
+- Type coercion
 
 ---
 
