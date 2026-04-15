@@ -76,8 +76,27 @@
 // Question 6 - What is Event Delegation?
 // Event delegation is a technique where you attach a single event listener to a parent element, instead of attaching individual listeners to each child element.
 
-document.querySelector(".products").addEventListener("click", (e) => {
-  if (e.target.tagName === "SPAN") {
-    window.location.href += "/" + e.target.location;
+// document.querySelector(".products").addEventListener("click", (e) => {
+//   if (e.target.tagName === "SPAN") {
+//     window.location.href += "/" + e.target.location;
+//   }
+// });
+
+// Question 7 - Create a modal which closes by clicking on negative space?
+
+const container = document.querySelector(".modalContainer");
+const button = document.querySelector(".modalButton");
+
+button.addEventListener("click", () => {
+  toggleModal(true);
+});
+
+function toggleModal(toggle) {
+  container.style.display = toggle ? "flex" : "none";
+}
+
+container.addEventListener("click", (e) => {
+  if (e.target.className === "modalContainer") {
+    toggleModal(false);
   }
 });
