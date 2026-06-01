@@ -1,13 +1,7 @@
 // class and constructor
-class Animal {
-  constructor(name) {
+class Teacher {
+  constructor(name, channel) {
     this.name = name;
-  }
-
-  speak() {
-    console.log(this.name + " makes noise");
+    this.channel = channel;
   }
 }
-
-const dog = new Animal("Tommy");
-dog.speak();
