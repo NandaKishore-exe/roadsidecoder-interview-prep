@@ -1,5 +1,6 @@
 import "./App.css";
-import UseReducerHook from "./components/UseReducerHook";
+import UseMemoaAndCallbackHook from "./components/UseMemoaAndCallbackHook";
+// import UseReducerHook from "./components/UseReducerHook";
 // import Counter from "./components/Counter";
 // import UseEffect from "./components/UseEffect";
 // import UseRef from "./components/UseRef";
@@ -14,7 +15,8 @@ function App() {
       {/* <Counter /> */}
       {/* <UseRef /> */}
       {/* <UseContextHook /> */}
-      <UseReducerHook />
+      {/* <UseReducerHook /> */}
+      <UseMemoaAndCallbackHook />
     </>
   );
 }
